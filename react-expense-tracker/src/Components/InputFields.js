@@ -1,5 +1,4 @@
 import React from 'react';
-import reactDOM from 'react-dom/client'
 
 function InputFields() {
     return (
@@ -7,4 +6,4 @@ function InputFields() {
     )
 };
 
-export default InputFields
+export default InputFields;

@@ -1,12 +1,11 @@
 import './App.css';
 import './Components/InputFields'
+import InputFields from './Components/InputFields';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <h1>Hello friend!</h1>
-      </header>
+        <InputFields />
     </div>
   );
 }
