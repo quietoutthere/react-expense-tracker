@@ -38,3 +38,16 @@ function InputFields() {
 
 export default InputFields;
 
+//Test Case
+
+//Grab input fields values
+
+//Step 1: User types in values
+//Expected: Values show up on screen
+//Actual: It works
+
+//Step 2: User presses Run Expenses
+//Expected: Values show up on ExpenseTable.js
+//Actual: Does not work
+
+//Step 3:
