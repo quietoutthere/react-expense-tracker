@@ -11,8 +11,8 @@ function InputFields() {
        <form>
             <div className="input-fields">
                 <label htmlFor="type">Type: </label>
-                <select name="type" id="type" required>
-                    <option disabled selected value=''>Select</option>
+                <select name="type" id="type" required defaultValue={'Select'}>
+                    <option disabled defaultValue={'Select'}>Select</option>
                     <option value="card">Card</option>
                     <option value="cash">Cash</option>
                     <option value="other">Other</option>
@@ -32,3 +32,4 @@ function InputFields() {
 };
 
 export default InputFields;
+
