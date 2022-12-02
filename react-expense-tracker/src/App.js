@@ -1,4 +1,3 @@
-import './App.css';
 import './Components/InputFields'
 import InputFields from './Components/InputFields';
 import Header from './Components/Header';
