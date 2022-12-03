@@ -1,14 +1,20 @@
 import React from 'react';
+import { useState } from 'react';
 
 
 function InputFields() {
 
+    const [amount, setAmount] = useState('')
+    console.log(amount);
+
     const handleChange = (event) => {
         console.log(event.target.value);
+        setAmount(event.target.value); 
+        
     }
 
     const handleClick = () => {
-        console.log(handleChange);
+        console.log(amount)
     }
 
 
@@ -25,9 +31,9 @@ function InputFields() {
                 <label htmlFor="vendor" >Vendor: </label>
                 <input type="text" placeholder="Name of Vendor" onChange={handleChange} required />
                 <label htmlFor="date">Date: </label>
-                <input type="date" required />
+                <input type="date" onChange={handleChange} required />
                 <label htmlFor="amount">Amount: </label>
-                <input type="number" placeholder='What did it cost?' step={ .01 } required/>
+                <input type="number" placeholder='What did it cost?' step={ .01 } onChange={handleChange} required/>
             </div>
             <div>
                 <button onClick={handleClick}>Run Expenses</button>
