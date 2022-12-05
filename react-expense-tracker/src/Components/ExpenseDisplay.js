@@ -1,9 +1,16 @@
 import React from 'react';
+import InputFields from './InputFields';
 
-function Display () {
+function Display (props) {
     return (
-        <h1>working</h1>
+    <h1>{props.amount}</h1>
     )
 }
 
 export default Display;
+
+//test case
+
+//pull state of InputFields and place them in the table
+
+//
