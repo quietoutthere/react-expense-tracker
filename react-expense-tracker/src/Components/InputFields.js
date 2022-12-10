@@ -5,12 +5,44 @@ import Table from './ExpenseDisplay';
 
 function InputFields() {
 
-    const [input, setInput] = useState([
-        { type: '', vendor:'', date:'', amount:''}
-    ]);
-   
+    const [expenseArray, setExpenseArray] = useState([]);
+    const [expense, setExpense] = useState(
+        {
+            type:'Select',
+            vendor:'',
+            date:'',
+            amount:'',
 
-    const handleClick = () => {
+        }
+    );
+
+    const handleChange = (e) => {
+        e.preventDefault();
+        setExpense({
+            ...expense,
+            [e.target.id]: e.target.value,
+        })
+    };
+
+    const handleClick = (e) => {
+        e.preventDefault();
+        const newExpenseArray = expenseArray.map((singleExpense) => {
+            return singleExpense
+        });
+        newExpenseArray.push(expense);
+        setExpenseArray(newExpenseArray);
+        clearFields();
+    
+    };
+
+    const clearFields = () => {
+        setExpense(
+        {
+            type:'Select',
+            vendor:'',
+            date:'',
+            amount:'',
+        })
     }
 
     return (
@@ -18,18 +50,30 @@ function InputFields() {
             <form>
                 <div className="input-fields">
                     <label htmlFor="type">Type: </label>
-                    <select name="type" id="type" defaultValue={ 'Select' } value={ input.type } onChange={e => setInput({ ...input, type: e.target.value })} required>
+                    <select 
+                        name="type" 
+                        id="type" 
+                        defaultValue={ 'Select' } 
+                        value={ expense.type } 
+                        onChange={handleChange} 
+                        required
+                    >
                         <option disabled defaultValue={ 'Select' }>Select</option>
                         <option value={ 'Card' }>Card</option>
                         <option value={ 'Cash' }>Cash</option>
                         <option value={ 'Other' }>Other</option>
                     </select>
                     <label htmlFor="vendor" >Vendor: </label>
-                    <input type="text" placeholder="Name of Vendor" value={input.vendor} onChange={e => setInput({ ...input, vendor: e.target.value })} required />
+                    <input 
+                        type="text" 
+                        id="vendor" 
+                        placeholder="Name of Vendor" 
+                        value={ expense.vendor } onChange={handleChange} 
+                        required />
                     <label htmlFor="date">Date: </label>
-                    <input type="date" value={input.date} onChange={e => setInput({ ...input, date: e.target.value })} required />
+                    <input type="date" id="date" value={expense.date} onChange={handleChange} required />
                     <label htmlFor="amount">Amount: </label>
-                    <input type="number" placeholder='What did it cost?' step={ .01 } value={input.amount} onChange={e => setInput({ ...input, amount: e.target.value})} required/>
+                    <input type="number" id="amount"placeholder='What did it cost?' step={ .01 } value={expense.amount} onChange={handleChange} required/>
                 </div>
                 <div>
                     <button onClick={handleClick}>Log Expense</button>
@@ -37,10 +81,7 @@ function InputFields() {
             </form>
             <div>
                 <Table 
-                type={input.type}
-                vendor={input.vendor}
-                date={input.date}
-                amount={input.amount}
+                expenseArray={expenseArray}
                 />
             </div>
         </>
@@ -48,4 +89,3 @@ function InputFields() {
 };
 
 export default InputFields;
-

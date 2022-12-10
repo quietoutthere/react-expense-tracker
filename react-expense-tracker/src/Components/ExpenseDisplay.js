@@ -1,7 +1,24 @@
 import React from 'react';
-import InputFields from './InputFields';
+import { Table } from 'react-bootstrap';
 
-function Display (props) {
+function Display ({ expenseArray }) {
+    
+    const deleteRow = (e) => {
+        const target = e.target.parentElement;
+        target.remove();
+    }
+    const expenseTable = expenseArray.map((expense) => {
+        return (
+            <tr id={Math.random()} key="id">
+                <td>{expense.type}</td>
+                <td>{expense.vendor}</td>
+                <td>{expense.date}</td>
+                <td>{expense.amount}</td>
+                <button id="button" onClick={deleteRow}>X</button>
+            </tr>
+        )
+    })
+
     return (
         <table className='table'>
             <thead>
@@ -13,21 +30,10 @@ function Display (props) {
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>{props.type}</td>
-                    <td>{props.vendor}</td>
-                    <td>{props.date}</td>
-                    <td>{props.amount}</td>
-                </tr>
+                { expenseTable }
             </tbody>
         </table>
     )
 }
 
 export default Display;
-
-//test case
-
-//pull state of InputFields and place them in the table
-
-//
