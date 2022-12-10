@@ -13,7 +13,7 @@ function Display ({ expenseArray }) {
                 <td>{expense.type}</td>
                 <td>{expense.vendor}</td>
                 <td>{expense.date}</td>
-                <td>{expense.amount}</td>
+                <td>${expense.amount}</td>
                 <td><button id="button" onClick={deleteRow}>X</button></td>
             </tr>
         )
@@ -27,6 +27,7 @@ function Display ({ expenseArray }) {
                     <th>Vendor</th>
                     <th>Date</th>
                     <th>Amount</th>
+                    <th>Delete</th>
                 </tr>
             </thead>
             <tbody>

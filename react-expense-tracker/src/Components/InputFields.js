@@ -1,11 +1,10 @@
 import React from 'react';
-import useLocalStorage from '../Hooks/useLocalStorage';
 import { useState } from 'react';
 import Table from './ExpenseDisplay';
 
 function InputFields() {
 
-    const [expenseArray, setExpenseArray] = useLocalStorage('todos', []);
+    const [expenseArray, setExpenseArray] = useState([])
     const [expense, setExpense] = useState(
         {
             type:'Select',
