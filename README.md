@@ -1,6 +1,6 @@
 # A To Do application with React
 
-Use it here [here](https://quietoutthere.github.io/calculator/)
+Use it here [here](https://to-do-application-with-react.netlify.app/)
 
 ![react expense tracker](https://user-images.githubusercontent.com/108839805/206872331-501efa19-0496-4741-86f5-e079dd18e3e2.png)
 
