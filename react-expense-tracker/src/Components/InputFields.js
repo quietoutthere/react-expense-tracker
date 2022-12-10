@@ -2,7 +2,6 @@ import React from 'react';
 import { useState } from 'react';
 import Table from './ExpenseDisplay';
 
-
 function InputFields() {
 
     const [expenseArray, setExpenseArray] = useState([]);
@@ -73,9 +72,14 @@ function InputFields() {
                     <label htmlFor="date">Date: </label>
                     <input type="date" id="date" value={expense.date} onChange={handleChange} required />
                     <label htmlFor="amount">Amount: </label>
-                    <input type="number" id="amount"placeholder='What did it cost?' step={ .01 } value={expense.amount} onChange={handleChange} required/>
-                </div>
-                <div>
+                    <input 
+                        type="number" 
+                        id="amount"
+                        placeholder='What did it cost?' 
+                        step={ .01 } 
+                        value={expense.amount} 
+                        onChange={handleChange} 
+                        required/>
                     <button onClick={handleClick}>Log Expense</button>
                 </div>
             </form>

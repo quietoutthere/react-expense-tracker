@@ -1,10 +1,10 @@
 import React from 'react';
-import { Table } from 'react-bootstrap';
+import Table from 'react-bootstrap/Table'
 
 function Display ({ expenseArray }) {
     
     const deleteRow = (e) => {
-        const target = e.target.parentElement;
+        const target = e.target.parentElement.parentElement;
         target.remove();
     }
     const expenseTable = expenseArray.map((expense) => {
@@ -14,26 +14,29 @@ function Display ({ expenseArray }) {
                 <td>{expense.vendor}</td>
                 <td>{expense.date}</td>
                 <td>{expense.amount}</td>
-                <button id="button" onClick={deleteRow}>X</button>
+                <td><button id="button" onClick={deleteRow}>X</button></td>
             </tr>
         )
     })
 
     return (
-        <table className='table'>
+        <Table striped bordered hover variant="dark">
             <thead>
                 <tr>
                     <th>Type</th>
                     <th>Vendor</th>
                     <th>Date</th>
                     <th>Amount</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
                 { expenseTable }
             </tbody>
-        </table>
+        </Table>
     )
 }
 
 export default Display;
+
+
