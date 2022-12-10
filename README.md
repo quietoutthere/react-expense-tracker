@@ -1,4 +1,4 @@
-# A To Do App with React
+# A To Do application with React
 
 Use it here [here](https://quietoutthere.github.io/calculator/)
 
