@@ -27,7 +27,6 @@ function Display ({ expenseArray }) {
                     <th>Vendor</th>
                     <th>Date</th>
                     <th>Amount</th>
-                    <th></th>
                 </tr>
             </thead>
             <tbody>
