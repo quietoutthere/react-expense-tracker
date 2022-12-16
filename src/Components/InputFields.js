@@ -23,8 +23,12 @@ function InputFields() {
         })
     };
 
-    const handleClick = (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
+        if (expense.type === 'Select') {
+            alert('Please Select a Payment Type');
+            return;
+        };
         const newExpenseArray = expenseArray.map((singleExpense) => {
             return singleExpense
         });
@@ -46,14 +50,13 @@ function InputFields() {
 
     return (
         <>
-            <form>
+            <form onSubmit={handleSubmit}>
                 <div className="input-fields">
                     <label htmlFor="type">Type: </label>
                     <select 
                         name="type" 
                         id="type" 
                         defaultValue={ 'Select' } 
-                        value={ expense.type } 
                         onChange={handleChange} 
                         required
                     >
@@ -67,10 +70,16 @@ function InputFields() {
                         type="text" 
                         id="vendor" 
                         placeholder="Name of Vendor" 
-                        value={ expense.vendor } onChange={handleChange} 
+                        value={ expense.vendor } 
+                        onChange={handleChange} 
                         required />
                     <label htmlFor="date">Date: </label>
-                    <input type="date" id="date" value={expense.date} onChange={handleChange} required />
+                    <input 
+                        type="date" 
+                        id="date" 
+                        value={expense.date} 
+                        onChange={handleChange} 
+                        required />
                     <label htmlFor="amount">Amount: </label>
                     <input 
                         type="number" 
@@ -80,7 +89,7 @@ function InputFields() {
                         value={expense.amount} 
                         onChange={handleChange} 
                         required/>
-                    <button onClick={handleClick}>Log Expense</button>
+                    <button type="submit">Log Expense</button>
                 </div>
             </form>
             <div>
